@@ -5,7 +5,7 @@ only requires protein identifiers to be passed in to search for relevant dataset
 
 ## Base Usage
 
-Load Patpat package and create running envs.
+Load Patpat package and create run env.
 
 ```Python
 import patpat.hub as hub
