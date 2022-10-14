@@ -1,7 +1,7 @@
 # Patpat
 
 Patpat is public proteomics dataset search framework that
-only requires protein identifiers to be passed in to search for relevant datasets
+only requires protein identifiers to be passed in to search for relevant datasets.
 
 ## Base Usage
 
