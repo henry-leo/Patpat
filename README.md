@@ -30,6 +30,7 @@ identifier_ = 'P23950'
 q = hub.QueryHub()
 q.identifier = identifier_
 q.simple_query()
+
 conf_ = q.get_query_config()
 ```
 Set up Mappers for MapperHub, search and get results:

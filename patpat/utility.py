@@ -52,7 +52,7 @@ def flatten(item, ignore_types=(str, bytes, set)):
 
 
 def initiate_uniprot_proteome_catalog():
-    """Update UniProt Proteome Catalog"""
+    """Initiate UniProt's proteome catalog"""
 
     ftp = FTP('ftp.uniprot.org')
     ftp.login()
