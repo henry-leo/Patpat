@@ -102,8 +102,8 @@ class PeptideQuerier(object):
 
 
 class UniProtProteinQuerier(ProteinQuerier):
-    """ProteinQuerier subclass for querying protein metadata through the PRIDE database.
-       通过PRIDE数据库查询蛋白质元数据的ProteinQuerier子类。
+    """ProteinQuerier subclass for querying protein metadata through the UniProt database.
+       通过UniProt数据库查询蛋白质元数据的ProteinQuerier子类。
     """
 
     def __init__(self):
@@ -139,6 +139,8 @@ class UniProtProteinQuerier(ProteinQuerier):
         """
         if re.match('[OPQ]\\d[A-Z\\d]{3}\\d|[A-NR-Z]\\d([A-Z][A-Z\\d]{2}\\d){1,2}', accession).group() == accession:
             self.identifier = accession
+        else:
+            raise TypeError('Can not identify identifier, please input UniProt accession.')
 
     def query(self):
         """Functions for external calls. 供外部调用的函数。
@@ -331,13 +333,13 @@ class LocalPeptideQuerier(PeptideQuerier):
 
             target_files = [i for i in file_info if i[1] == up_id]
             if not target_files:
-                print(f'The {up_id} proteome file was not found locally.')
+                print(f"The {self.organism['name']} {up_id} proteome file was not found locally.")
 
                 flag = input('Do you want to download it?(y/n)')
                 if flag == 'y':
                     source = utility.download_uniprot_opg(taxonomy_id)
                 else:
-                    raise FileNotFoundError(f'The {up_id} proteome file was not found locally.')
+                    raise FileNotFoundError(f'User cancel operation.')
 
             else:
                 target_file = [i[0] for i in target_files if i[2] == max([j[2] for j in target_files])][0]

@@ -239,7 +239,7 @@ class PrideMapper(Mapper):
                 continue
 
         self._project_base = project_base
-        logging.getLogger('core').info('Completed.')
+        logging.getLogger('core').info('PRIDE mapping completed.')
 
     def filtering(self):
         """Implementing remove for incorrect mappings. 排除不正确的映射。
@@ -425,7 +425,7 @@ class IProXMapper(Mapper):
                 continue
 
         self._project_base = project_base
-        logging.getLogger('core').info('Completed.')
+        logging.getLogger('core').info('iProX mapping completed.')
 
     def filtering(self):
         """Implementing remove for incorrect mappings. 排除不正确的映射。

@@ -5,13 +5,42 @@ import os
 import re
 import time
 import gzip
-import logging
 from urllib import parse
 from ftplib import FTP
 
 import requests
 import tqdm
 import pandas as pd
+
+
+def init():
+    """Used to create package runtime environment. 用于创建包运行环境。
+
+    Directory structure of the runtime environment:
+        patpat_env
+        |-- logs
+        |-- tmp
+        |-- result
+        |-- proteome
+
+    """
+
+    def init_subdir():
+        """Used to create subdirectory. 用于创建子目录"""
+        dir_list = ['logs', 'tmp', 'result', 'proteome']
+        for dir_ in dir_list:
+            try:
+                os.makedirs(f'patpat_env/{dir_}')
+            except FileExistsError:
+                print(f'\033[0;31mWarning! This directory already exists. 警告！该目录已经存在。[patpat_env/{dir_}]\033[0m')
+
+    if os.path.exists('patpat_env/'):
+        print(f'\033[0;31mWarning! This directory already exists. 警告！该目录已经存在。[patpat_env/]\033[0m')
+        init_subdir()
+    else:
+        os.mkdir('patpat_env/')
+        init_subdir()
+    print('Runtime environment completed.')
 
 
 def flatten(item, ignore_types=(str, bytes, set)):
@@ -22,23 +51,18 @@ def flatten(item, ignore_types=(str, bytes, set)):
             yield x
 
 
-def upgrade_list_uniprot_proteome():
+def initiate_uniprot_proteome_catalog():
     """Update UniProt Proteome Catalog"""
-    os.chdir('patpat_env/proteome')
-    try:
-        os.remove([i for i in os.listdir() if re.search('UP_README', i)][0])
-    except IndexError:
-        pass
 
     ftp = FTP('ftp.uniprot.org')
     ftp.login()
     ftp.cwd('./pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/')
     download_time = time.strftime('%Y-%m-%d', time.localtime())
-    with open(f'UP_README_{download_time}', mode='wb') as f:
+    with open(f'patpat_env/proteome/UP_README_{download_time}', mode='wb') as f:
         ftp.retrbinary(f'RETR README', f.write)
     ftp.close()
     os.chdir('../..')
-    logging.getLogger('core').debug('Upgrade completed')
+    print('Uniprot_proteome_list has been initiated.')
 
 
 def create_list_uniprot_proteome():
@@ -95,7 +119,7 @@ def download_uniprot_opg(taxonomy_id):
         fo.write(gz.read())
     gz.close()
 
-    logging.getLogger('core').debug(f'{file_name} download is complete.')
+    print(f'{file_name} download is complete.')
     os.remove(f'patpat_env/proteome/{file_name}.gz')
     return f'patpat_env/proteome/uniprot-proteome_{up_id}_OGP_{download_time}.fasta'
 

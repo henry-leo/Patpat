@@ -1,0 +1,259 @@
+2022-10-17 17:39:50,264	INFO	mapper	mapping	Select iProX to search.
+2022-10-17 17:39:50,264	INFO	mapper	mapping2peptides	Find 33 peptides all.
+2022-10-17 17:39:50,624	INFO	retriever	retrieve	query:ALAGGRDLSADRPR
+2022-10-17 17:39:51,546	INFO	retriever	retrieve	query:AVGTPAGGGFPR
+2022-10-17 17:39:52,265	INFO	retriever	retrieve	page 1 is completed.
+2022-10-17 17:39:52,931	INFO	retriever	retrieve	query:AVGTPAGGGFPRR
+2022-10-17 17:39:53,620	INFO	retriever	retrieve	query:CHFIHNAEER
+2022-10-17 17:39:54,260	INFO	retriever	retrieve	query:CHFIHNAEERR
+2022-10-17 17:39:55,135	INFO	retriever	retrieve	query:CQFAHGIHELR
+2022-10-17 17:39:55,541	INFO	retriever	retrieve	page 1 is completed.
+2022-10-17 17:39:56,402	INFO	retriever	retrieve	query:CQFAHGIHELRSLTR
+2022-10-17 17:39:58,200	INFO	retriever	retrieve	query:DLSADRPR
+2022-10-17 17:39:59,076	INFO	retriever	retrieve	query:DRSFSEGGER
+2022-10-17 17:40:00,153	INFO	retriever	retrieve	query:FHQNQLLSSLK
+2022-10-17 17:40:00,624	INFO	retriever	retrieve	page 1 is completed.
+2022-10-17 17:40:01,570	INFO	retriever	retrieve	query:FHQNQLLSSLKGEPAPSLSSR
+2022-10-17 17:40:02,523	INFO	retriever	retrieve	query:GEPAPSLSSR
+2022-10-17 17:40:03,627	INFO	retriever	retrieve	query:GEPAPSLSSRDSR
+2022-10-17 17:40:04,753	INFO	retriever	retrieve	query:GNKMLNYSTPSAGGCLLDR
+2022-10-17 17:40:05,887	INFO	retriever	retrieve	query:HSVTLPSSK
+2022-10-17 17:40:06,941	INFO	retriever	retrieve	query:HSVTLPSSKFHQNQLLSSLK
+2022-10-17 17:40:08,066	INFO	retriever	retrieve	query:KAVGTPAGGGFPR
+2022-10-17 17:40:09,204	INFO	retriever	retrieve	query:LLPTQKQPGSGQVNSSR
+2022-10-17 17:40:10,649	INFO	retriever	retrieve	query:MLNYSTPSAGGCLLDR
+2022-10-17 17:40:11,908	INFO	retriever	retrieve	query:MLNYSTPSAGGCLLDRK
+2022-10-17 17:40:13,134	INFO	retriever	retrieve	query:MTTTLVSATIFDLSEVLCK
+2022-10-17 17:40:14,564	INFO	retriever	retrieve	query:MTTTLVSATIFDLSEVLCKGNK
+2022-10-17 17:40:15,933	INFO	retriever	retrieve	query:QPGSGQVNSSR
+2022-10-17 17:40:18,332	INFO	retriever	retrieve	query:QPGSGQVNSSRYK
+2022-10-17 17:40:19,676	INFO	retriever	retrieve	query:RALAGGR
+2022-10-17 17:40:20,973	INFO	retriever	retrieve	query:RHSVTLPSSK
+2022-10-17 17:40:22,285	INFO	retriever	retrieve	query:SFSEGGER
+2022-10-17 17:40:23,643	INFO	retriever	retrieve	query:SFSEGGERLLPTQK
+2022-10-17 17:40:25,236	INFO	retriever	retrieve	query:TELCRPFEENGACK
+2022-10-17 17:40:25,642	INFO	retriever	retrieve	page 1 is completed.
+2022-10-17 17:40:27,251	INFO	retriever	retrieve	query:TELCRPFEENGACKYGDK
+2022-10-17 17:40:28,829	INFO	retriever	retrieve	query:TFHTIGFCPYGPRCHFIHNAEER
+2022-10-17 17:40:30,649	INFO	retriever	retrieve	query:YGDKCQFAHGIHELR
+2022-10-17 17:40:32,508	INFO	retriever	retrieve	query:YKTELCRPFEENGACK
+2022-10-17 17:40:34,137	INFO	retriever	retrieve	query:P23950
+2022-10-17 17:40:34,451	INFO	mapper	mapping2project	Mapper to project...
+2022-10-17 17:40:38,580	DEBUG	retriever	retrieve	query:PXD006512
+2022-10-17 17:40:38,895	INFO	mapper	mapping2project	iProX mapping completed.
+2022-10-17 17:40:38,895	INFO	mapper	mapping	Select PRIDE to search.
+2022-10-17 17:40:38,895	INFO	mapper	mapping2peptides	Find 33 peptides all.
+2022-10-17 17:40:40,082	INFO	retriever	retrieve	query:ALAGGRDLSADRPR
+2022-10-17 17:40:41,315	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:40:44,287	INFO	retriever	retrieve	query:AVGTPAGGGFPR
+2022-10-17 17:40:50,320	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:40:52,673	INFO	retriever	retrieve	query:AVGTPAGGGFPRR
+2022-10-17 17:40:53,811	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:40:56,878	INFO	retriever	retrieve	query:CHFIHNAEER
+2022-10-17 17:40:58,818	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:01,487	INFO	retriever	retrieve	query:CHFIHNAEERR
+2022-10-17 17:41:05,483	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:08,249	INFO	retriever	retrieve	query:CQFAHGIHELR
+2022-10-17 17:41:09,777	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:12,237	INFO	retriever	retrieve	query:CQFAHGIHELRSLTR
+2022-10-17 17:41:13,464	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:16,853	INFO	retriever	retrieve	query:DLSADRPR
+2022-10-17 17:41:18,374	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:20,841	INFO	retriever	retrieve	query:DRSFSEGGER
+2022-10-17 17:41:22,887	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:25,951	INFO	retriever	retrieve	query:FHQNQLLSSLK
+2022-10-17 17:41:28,106	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:30,571	INFO	retriever	retrieve	query:FHQNQLLSSLKGEPAPSLSSR
+2022-10-17 17:41:33,029	INFO	retriever	retrieve	query:GEPAPSLSSR
+2022-10-17 17:41:34,254	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:37,034	INFO	retriever	retrieve	query:GEPAPSLSSRDSR
+2022-10-17 17:41:39,485	INFO	retriever	retrieve	query:GNKMLNYSTPSAGGCLLDR
+2022-10-17 17:41:40,709	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:46,441	INFO	retriever	retrieve	query:HSVTLPSSK
+2022-10-17 17:41:50,023	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:55,446	INFO	retriever	retrieve	query:HSVTLPSSKFHQNQLLSSLK
+2022-10-17 17:41:56,670	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:41:59,649	INFO	retriever	retrieve	query:KAVGTPAGGGFPR
+2022-10-17 17:42:01,595	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:04,665	INFO	retriever	retrieve	query:LLPTQKQPGSGQVNSSR
+2022-10-17 17:42:05,898	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:08,148	INFO	retriever	retrieve	query:MLNYSTPSAGGCLLDR
+2022-10-17 17:42:09,476	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:13,990	INFO	retriever	retrieve	query:MLNYSTPSAGGCLLDRK
+2022-10-17 17:42:15,208	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:18,801	INFO	retriever	retrieve	query:MTTTLVSATIFDLSEVLCK
+2022-10-17 17:42:21,256	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:24,333	INFO	retriever	retrieve	query:MTTTLVSATIFDLSEVLCKGNK
+2022-10-17 17:42:25,563	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:28,518	INFO	retriever	retrieve	query:QPGSGQVNSSR
+2022-10-17 17:42:29,942	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:32,319	INFO	retriever	retrieve	query:QPGSGQVNSSRYK
+2022-10-17 17:42:33,388	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:35,602	INFO	retriever	retrieve	query:RALAGGR
+2022-10-17 17:42:36,823	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:43,180	INFO	retriever	retrieve	query:RHSVTLPSSK
+2022-10-17 17:42:47,497	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:49,015	INFO	retriever	retrieve	page 1 is completed.
+2022-10-17 17:42:52,902	INFO	retriever	retrieve	query:SFSEGGER
+2022-10-17 17:42:54,332	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:42:56,810	INFO	retriever	retrieve	query:SFSEGGERLLPTQK
+2022-10-17 17:42:58,072	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:43:01,912	INFO	retriever	retrieve	query:TELCRPFEENGACK
+2022-10-17 17:43:03,348	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:43:05,797	INFO	retriever	retrieve	query:TELCRPFEENGACKYGDK
+2022-10-17 17:43:07,330	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:43:09,689	INFO	retriever	retrieve	query:TFHTIGFCPYGPRCHFIHNAEER
+2022-10-17 17:43:10,923	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:43:13,608	INFO	retriever	retrieve	query:YGDKCQFAHGIHELR
+2022-10-17 17:43:15,123	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:43:17,576	INFO	retriever	retrieve	query:YKTELCRPFEENGACK
+2022-10-17 17:43:18,606	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:43:27,107	INFO	retriever	retrieve	query:P23950
+2022-10-17 17:43:35,801	INFO	retriever	retrieve	page 0 is completed.
+2022-10-17 17:43:39,798	INFO	retriever	retrieve	page 1 is completed.
+2022-10-17 17:43:41,002	INFO	mapper	mapping2project	Mapper to project...
+2022-10-17 17:43:42,457	DEBUG	retriever	retrieve	query:PXD012188
+2022-10-17 17:43:43,994	DEBUG	retriever	retrieve	query:PXD003966
+2022-10-17 17:43:45,538	DEBUG	retriever	retrieve	query:PXD007060
+2022-10-17 17:43:47,007	DEBUG	retriever	retrieve	query:PXD008952
+2022-10-17 17:43:48,500	DEBUG	retriever	retrieve	query:PXD006847
+2022-10-17 17:43:50,041	DEBUG	retriever	retrieve	query:PXD017659
+2022-10-17 17:43:51,475	DEBUG	retriever	retrieve	query:PXD001000
+2022-10-17 17:43:52,934	DEBUG	retriever	retrieve	query:PXD003356
+2022-10-17 17:43:54,549	DEBUG	retriever	retrieve	query:PXD012798
+2022-10-17 17:43:55,919	DEBUG	retriever	retrieve	query:PXD000543
+2022-10-17 17:43:57,725	DEBUG	retriever	retrieve	query:PXD006482
+2022-10-17 17:43:59,152	DEBUG	retriever	retrieve	query:PXD016254
+2022-10-17 17:44:00,593	DEBUG	retriever	retrieve	query:PXD004312
+2022-10-17 17:44:02,426	DEBUG	retriever	retrieve	query:PXD015203
+2022-10-17 17:44:03,965	DEBUG	retriever	retrieve	query:PXD010786
+2022-10-17 17:44:05,500	DEBUG	retriever	retrieve	query:PXD006570
+2022-10-17 17:44:07,040	DEBUG	retriever	retrieve	query:PXD010150
+2022-10-17 17:44:08,572	DEBUG	retriever	retrieve	query:PXD000535
+2022-10-17 17:44:10,124	DEBUG	retriever	retrieve	query:PXD004954
+2022-10-17 17:44:11,605	DEBUG	retriever	retrieve	query:PXD017148
+2022-10-17 17:44:13,182	DEBUG	retriever	retrieve	query:PXD008272
+2022-10-17 17:44:14,613	DEBUG	retriever	retrieve	query:PXD007592
+2022-10-17 17:44:16,047	DEBUG	retriever	retrieve	query:PXD001415
+2022-10-17 17:44:18,096	DEBUG	retriever	retrieve	query:PXD006590
+2022-10-17 17:44:19,582	DEBUG	retriever	retrieve	query:PXD007648
+2022-10-17 17:44:21,370	DEBUG	retriever	retrieve	query:PXD003594
+2022-10-17 17:44:22,904	DEBUG	retriever	retrieve	query:PXD001428
+2022-10-17 17:44:26,185	DEBUG	retriever	retrieve	query:PXD008276
+2022-10-17 17:44:27,562	DEBUG	retriever	retrieve	query:PXD009102
+2022-10-17 17:44:30,071	DEBUG	retriever	retrieve	query:PXD002781
+2022-10-17 17:44:31,612	DEBUG	retriever	retrieve	query:PXD008267
+2022-10-17 17:44:33,158	DEBUG	retriever	retrieve	query:PXD001416
+2022-10-17 17:44:34,591	DEBUG	retriever	retrieve	query:PXD009966
+2022-10-17 17:44:36,023	DEBUG	retriever	retrieve	query:PXD011431
+2022-10-17 17:44:37,558	DEBUG	retriever	retrieve	query:PXD018061
+2022-10-17 17:44:39,087	DEBUG	retriever	retrieve	query:PXD009096
+2022-10-17 17:44:40,630	DEBUG	retriever	retrieve	query:PXD005055
+2022-10-17 17:44:42,177	DEBUG	retriever	retrieve	query:PXD001578
+2022-10-17 17:44:43,692	DEBUG	retriever	retrieve	query:PXD001418
+2022-10-17 17:44:45,475	DEBUG	retriever	retrieve	query:PXD010429
+2022-10-17 17:44:46,920	DEBUG	retriever	retrieve	query:PXD014607
+2022-10-17 17:44:48,360	DEBUG	retriever	retrieve	query:PXD006591
+2022-10-17 17:44:49,834	DEBUG	retriever	retrieve	query:PXD007575
+2022-10-17 17:44:51,385	DEBUG	retriever	retrieve	query:PXD010271
+2022-10-17 17:44:52,907	DEBUG	retriever	retrieve	query:PXD006757
+2022-10-17 17:44:54,342	DEBUG	retriever	retrieve	query:PXD018329
+2022-10-17 17:44:55,773	DEBUG	retriever	retrieve	query:PXD013960
+2022-10-17 17:44:57,267	DEBUG	retriever	retrieve	query:PXD010610
+2022-10-17 17:44:58,961	DEBUG	retriever	retrieve	query:PXD007137
+2022-10-17 17:45:00,602	DEBUG	retriever	retrieve	query:PXD000219
+2022-10-17 17:45:02,133	DEBUG	retriever	retrieve	query:PXD005432
+2022-10-17 17:45:04,077	DEBUG	retriever	retrieve	query:PXD010600
+2022-10-17 17:45:07,145	DEBUG	retriever	retrieve	query:PXD011178
+2022-10-17 17:45:08,985	DEBUG	retriever	retrieve	query:PXD005768
+2022-10-17 17:45:10,518	DEBUG	retriever	retrieve	query:PXD008836
+2022-10-17 17:45:12,075	DEBUG	retriever	retrieve	query:PXD004764
+2022-10-17 17:45:14,521	DEBUG	retriever	retrieve	query:PXD003967
+2022-10-17 17:45:16,056	DEBUG	retriever	retrieve	query:PXD011582
+2022-10-17 17:45:17,587	DEBUG	retriever	retrieve	query:PXD007188
+2022-10-17 17:45:20,041	DEBUG	retriever	retrieve	query:PXD006576
+2022-10-17 17:45:21,590	DEBUG	retriever	retrieve	query:PXD004510
+2022-10-17 17:45:23,122	DEBUG	retriever	retrieve	query:PXD002982
+2022-10-17 17:45:26,086	DEBUG	retriever	retrieve	query:PXD017650
+2022-10-17 17:45:29,367	DEBUG	retriever	retrieve	query:PXD000558
+2022-10-17 17:45:30,902	DEBUG	retriever	retrieve	query:PXD013503
+2022-10-17 17:45:32,449	DEBUG	retriever	retrieve	query:PXD017119
+2022-10-17 17:45:33,979	DEBUG	retriever	retrieve	query:PXD008220
+2022-10-17 17:45:35,641	DEBUG	retriever	retrieve	query:PXD003409
+2022-10-17 17:45:37,045	DEBUG	retriever	retrieve	query:PXD006578
+2022-10-17 17:45:41,248	DEBUG	retriever	retrieve	query:PXD002255
+2022-10-17 17:45:42,672	DEBUG	retriever	retrieve	query:PXD016331
+2022-10-17 17:45:44,210	DEBUG	retriever	retrieve	query:PXD010333
+2022-10-17 17:45:45,749	DEBUG	retriever	retrieve	query:PXD013066
+2022-10-17 17:45:47,294	DEBUG	retriever	retrieve	query:PXD001974
+2022-10-17 17:45:49,231	DEBUG	retriever	retrieve	query:PXD017271
+2022-10-17 17:45:50,870	DEBUG	retriever	retrieve	query:PXD011464
+2022-10-17 17:45:52,401	DEBUG	retriever	retrieve	query:PXD010931
+2022-10-17 17:45:53,943	DEBUG	retriever	retrieve	query:PXD016700
+2022-10-17 17:45:55,373	DEBUG	retriever	retrieve	query:PXD005433
+2022-10-17 17:45:57,124	DEBUG	retriever	retrieve	query:PXD006910
+2022-10-17 17:45:58,552	DEBUG	retriever	retrieve	query:PXD000966
+2022-10-17 17:46:00,715	DEBUG	retriever	retrieve	query:PXD014648
+2022-10-17 17:46:02,240	DEBUG	retriever	retrieve	query:PXD000529
+2022-10-17 17:46:03,777	DEBUG	retriever	retrieve	query:PXD005590
+2022-10-17 17:46:05,308	DEBUG	retriever	retrieve	query:PXD004796
+2022-10-17 17:46:06,848	DEBUG	retriever	retrieve	query:PXD008719
+2022-10-17 17:46:08,384	DEBUG	retriever	retrieve	query:PXD015981
+2022-10-17 17:46:10,222	DEBUG	retriever	retrieve	query:PXD003407
+2022-10-17 17:46:11,768	DEBUG	retriever	retrieve	query:PXD014780
+2022-10-17 17:46:15,144	DEBUG	retriever	retrieve	query:PXD005978
+2022-10-17 17:46:16,673	DEBUG	retriever	retrieve	query:PXD013652
+2022-10-17 17:46:18,347	DEBUG	retriever	retrieve	query:PXD005698
+2022-10-17 17:46:19,879	DEBUG	retriever	retrieve	query:PXD013815
+2022-10-17 17:46:21,325	DEBUG	retriever	retrieve	query:PXD003613
+2022-10-17 17:46:22,816	DEBUG	retriever	retrieve	query:PXD001327
+2022-10-17 17:46:24,670	DEBUG	retriever	retrieve	query:PXD006589
+2022-10-17 17:46:27,934	DEBUG	retriever	retrieve	query:PXD016017
+2022-10-17 17:46:29,483	DEBUG	retriever	retrieve	query:PXD000625
+2022-10-17 17:46:31,007	DEBUG	retriever	retrieve	query:PXD004651
+2022-10-17 17:46:34,600	DEBUG	retriever	retrieve	query:PXD008654
+2022-10-17 17:46:36,127	DEBUG	retriever	retrieve	query:PXD011141
+2022-10-17 17:46:37,674	DEBUG	retriever	retrieve	query:PXD012813
+2022-10-17 17:46:39,205	DEBUG	retriever	retrieve	query:PXD006833
+2022-10-17 17:46:40,751	DEBUG	retriever	retrieve	query:PXD009737
+2022-10-17 17:46:42,182	DEBUG	retriever	retrieve	query:PXD012494
+2022-10-17 17:46:43,915	DEBUG	retriever	retrieve	query:PXD001419
+2022-10-17 17:46:45,562	DEBUG	retriever	retrieve	query:PXD006776
+2022-10-17 17:46:47,093	DEBUG	retriever	retrieve	query:PXD013608
+2022-10-17 17:46:48,437	DEBUG	retriever	retrieve	query:PXD004369
+2022-10-17 17:46:49,967	DEBUG	retriever	retrieve	query:PXD011458
+2022-10-17 17:46:52,519	DEBUG	retriever	retrieve	query:PXD004778
+2022-10-17 17:46:54,056	DEBUG	retriever	retrieve	query:PXD012263
+2022-10-17 17:46:55,594	DEBUG	retriever	retrieve	query:PXD000533
+2022-10-17 17:46:57,124	DEBUG	retriever	retrieve	query:PXD003055
+2022-10-17 17:46:58,968	DEBUG	retriever	retrieve	query:PXD006572
+2022-10-17 17:47:00,507	DEBUG	retriever	retrieve	query:PXD005073
+2022-10-17 17:47:02,045	DEBUG	retriever	retrieve	query:PXD016929
+2022-10-17 17:47:03,575	DEBUG	retriever	retrieve	query:PXD004785
+2022-10-17 17:47:05,114	DEBUG	retriever	retrieve	query:PXD008832
+2022-10-17 17:47:06,653	DEBUG	retriever	retrieve	query:PXD009401
+2022-10-17 17:47:08,183	DEBUG	retriever	retrieve	query:PXD006920
+2022-10-17 17:47:10,754	DEBUG	retriever	retrieve	query:PXD002614
+2022-10-17 17:47:12,230	DEBUG	retriever	retrieve	query:PXD016859
+2022-10-17 17:47:13,815	DEBUG	retriever	retrieve	query:PXD003408
+2022-10-17 17:47:15,259	DEBUG	retriever	retrieve	query:PXD004788
+2022-10-17 17:47:16,784	DEBUG	retriever	retrieve	query:PXD014820
+2022-10-17 17:47:18,274	DEBUG	retriever	retrieve	query:PXD003406
+2022-10-17 17:47:19,861	DEBUG	retriever	retrieve	query:PXD002212
+2022-10-17 17:47:22,524	DEBUG	retriever	retrieve	query:PXD003656
+2022-10-17 17:47:24,060	DEBUG	retriever	retrieve	query:PXD003413
+2022-10-17 17:47:25,595	DEBUG	retriever	retrieve	query:PXD010930
+2022-10-17 17:47:27,134	DEBUG	retriever	retrieve	query:PXD001269
+2022-10-17 17:47:28,564	DEBUG	retriever	retrieve	query:PXD006268
+2022-10-17 17:47:30,087	DEBUG	retriever	retrieve	query:PXD017469
+2022-10-17 17:47:31,642	DEBUG	retriever	retrieve	query:PXD000861
+2022-10-17 17:47:33,167	DEBUG	retriever	retrieve	query:PXD000534
+2022-10-17 17:47:34,612	DEBUG	retriever	retrieve	query:PXD005415
+2022-10-17 17:47:36,137	DEBUG	retriever	retrieve	query:PXD017943
+2022-10-17 17:47:37,677	DEBUG	retriever	retrieve	query:PXD000222
+2022-10-17 17:47:39,216	DEBUG	retriever	retrieve	query:PXD007153
+2022-10-17 17:47:40,751	DEBUG	retriever	retrieve	query:PXD003412
+2022-10-17 17:47:42,281	DEBUG	retriever	retrieve	query:PXD003415
+2022-10-17 17:47:44,438	DEBUG	retriever	retrieve	query:PXD003414
+2022-10-17 17:47:45,977	DEBUG	retriever	retrieve	query:PXD006137
+2022-10-17 17:47:46,292	INFO	mapper	mapping2project	PRIDE mapping completed.

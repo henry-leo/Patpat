@@ -6,12 +6,14 @@ only requires protein identifiers to be passed in to search for relevant dataset
 ## Base Usage
 
 Load Patpat package and create runtime environment:
+
 ```Python
 import patpat.hub as hub
 import patpat.mapper as mapper
-import patpat.querier as querier
+import patpat.utility as utility
 
-hub.init()
+utility.init()
+utility.initiate_uniprot_proteome_catalog()
 ```
 Directory structure of the runtime environment is as follows:
 ```
@@ -26,6 +28,7 @@ Get the search configs via the QueryHub:
 ```python
 identifier_ = 'P23950'
 q = hub.QueryHub()
+q.identifier = identifier_
 q.simple_query()
 conf_ = q.get_query_config()
 ```
@@ -47,7 +50,7 @@ Patpat is an extensible framework and users are encouraged to extend it with dat
 to build their processes. 
 
 
-For more information, see the Wiki. 
+For more information, see the Wiki (https://github.com/henry-leo/Patpat/wiki). 
 
 (But the Wiki is currently under development... (T⌓T)
 

@@ -5,7 +5,7 @@ in this module. init function provides the runtime environment required for patp
 of protein metadata and generating peptides to be retrieved, while MapperHub class provides breakpoints for merging
 and retrieving multiple proteomic databases . Furthermore, both classes are pluggable, so it is easy to insert
 self-built methods or classes into them, as long as the developer adheres to the interface design.
-本模块是patpat的核心模块，用户可以通过本模块中的类将patpat的其他类聚合在一起使用。init函数提供patpat需要的运行环境。
+本模块是patpat的核心模块，用户可以通过本模块中的类将patpat的其他类聚合在一起使用。
 QueryHub类提供对蛋白质元数据的查询和需要检索肽段的生成功能，MapperHub类则提供多蛋白质组数据库合并检索和检索断点续传的功能。
 其次，这两个类都是可拔插的，因此只要开发者遵守接口设计，很容易将自建的方法或类插入其中。
 
@@ -47,35 +47,6 @@ from . import utility
 from . import querier
 from . import mapper
 from . import logger
-
-
-def init():
-    """Used to create package runtime environment. 用于创建包运行环境。
-
-    Directory structure of the runtime environment:
-        patpat_env
-        |-- logs
-        |-- tmp
-        |-- result
-        |-- proteome
-
-    """
-
-    def init_subdir():
-        """Used to create subdirectory. 用于创建子目录"""
-        dir_list = ['logs', 'tmp', 'result', 'proteome']
-        for dir_ in dir_list:
-            try:
-                os.makedirs(f'patpat_env/{dir_}')
-            except FileExistsError:
-                print(f'\033[0;31mWarning! This directory already exists. 警告！该目录已经存在。[patpat_env/{dir_}]\033[0m')
-
-    if os.path.exists('patpat_env/'):
-        print(f'\033[0;31mWarning! This directory already exists. 警告！该目录已经存在。[patpat_env/]\033[0m')
-        init_subdir()
-    else:
-        os.mkdir('patpat_env/')
-        init_subdir()
 
 
 class QueryHub(object):
@@ -366,6 +337,10 @@ class MapperHub:
             pass
         else:
             os.mkdir(f'patpat_env/result/{self._task}')
+
+        with open(f'patpat_env/result/{self._task}/config.json', 'w') as fw:
+            config = json.dumps(self.config)
+            fw.write(config)
 
         with open(f'patpat_env/result/{self._task}/result.json', 'w') as fw:
             output_json = json.dumps(output)
