@@ -398,7 +398,6 @@ class UniProtPeptideQuerier(PeptideQuerier):
                  digestion_params: dict = None,
                  search_args=None):
         super().__init__()
-
         self.sequence = sequence
 
         if digestion_params is None:
@@ -418,6 +417,9 @@ class UniProtPeptideQuerier(PeptideQuerier):
         self._peptides = None
 
         self.filtered_peptides = None
+
+        # CALL ERROR
+        raise NotImplementedError("This class is under development...")
 
     def set_params(self):
         pass

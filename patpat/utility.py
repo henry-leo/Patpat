@@ -17,12 +17,11 @@ def init():
     """Used to create package runtime environment. 用于创建包运行环境。
 
     Directory structure of the runtime environment:
-        patpat_env
-        |-- logs
-        |-- tmp
-        |-- result
-        |-- proteome
-
+        patpat_env/
+            |-- logs/
+            |-- tmp/
+            |-- result/
+            |-- proteome/
     """
 
     def init_subdir():
@@ -52,7 +51,13 @@ def flatten(item, ignore_types=(str, bytes, set)):
 
 
 def initiate_uniprot_proteome_catalog():
-    """Initiate UniProt's proteome catalog"""
+    """Initiate UniProt's proteome catalog
+
+    Returns:
+        patpat_env/
+            |-- proteome/
+                |-- UP_README_yyyy-mm-dd
+    """
 
     ftp = FTP('ftp.uniprot.org')
     ftp.login()
@@ -128,8 +133,8 @@ def download_uniprot_proteome(identifier: str):
     """Download proteome fasta from UniProt database
 
     Args:
-        identifier: str. The 'proteome' filter value has invalid format. It should match the regular expression UP[0-9]{9}
-        reviewed: bool.
+        identifier: str.
+                The 'proteome' filter value has invalid format, it should match the regular expression UP[0-9]{9}
     """
     url = f'https://rest.uniprot.org/uniprotkb/stream?format=fasta&query=%28%28proteome%3A{identifier}%29%29'
 
