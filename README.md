@@ -17,11 +17,12 @@ utility.initiate_uniprot_proteome_catalog()
 ```
 Directory structure of the runtime environment is as follows:
 ```
-patpat_env
-    |-- logs
-    |-- tmp
-    |-- result
-    |-- proteome
+patpat_env/
+    |-- logs/
+    |-- tmp/
+    |-- result/
+    |-- proteome/
+        |-- UP_README_yyyy-mm-dd
 ```
 
 Get the search configs via the QueryHub:
