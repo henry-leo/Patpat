@@ -66,14 +66,12 @@ def initiate_uniprot_proteome_catalog():
     with open(f'patpat_env/proteome/UP_README_{download_time}', mode='wb') as f:
         ftp.retrbinary(f'RETR README', f.write)
     ftp.close()
-    os.chdir('../..')
     print('Uniprot_proteome_list has been initiated.')
 
 
 def create_list_uniprot_proteome():
     """Create UniProt Proteome Catalog"""
-    os.chdir('patpat_env/proteome')
-    file = [i for i in os.listdir() if re.search('UP_README', i)][0]
+    file = [i for i in os.listdir() if re.search('patpat_env/proteome/UP_README', i)][0]
     with open(file, mode='r') as f:
         flag = ''
         while flag != 'Proteome_ID	Tax_ID	OSCODE	SUPERREGNUM	#(1)	#(2)	#(3)	Species Name\n':
@@ -88,7 +86,6 @@ def create_list_uniprot_proteome():
             else:
                 r.append(re.split('\t', flag[:-1]))
         df = pd.DataFrame(r[1:], columns=r[0])
-    os.chdir('../..')
     return df
 
 
