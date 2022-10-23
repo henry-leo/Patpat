@@ -22,8 +22,7 @@ patpat_env/
     |-- proteome/
         |-- UP_README_yyyy-mm-dd
 ```
-Search for the peptide to be searched via the QueryHub
-
+As an example, take the mouse protein P23950 (UniProt) and search for the peptide to be searched by QueryHub
 ```python
 identifier_ = 'P23950'
 q = hub.QueryHub()
