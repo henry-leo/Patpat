@@ -57,4 +57,4 @@ In its current version, Patpat supports both PRIDE and iProX databases. In addit
 Patpat is an extensible framework and users are encouraged to extend it with databases of interest to Patpat or
 to build their processes.
 
-For more information, see the Wiki (https://github.com/henry-leo/Patpat/wiki).
+For more information, see the [Wiki](https://github.com/henry-leo/Patpat/wiki).
