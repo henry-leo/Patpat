@@ -58,9 +58,3 @@ Patpat is an extensible framework and users are encouraged to extend it with dat
 to build their processes.
 
 For more information, see the Wiki (https://github.com/henry-leo/Patpat/wiki).
-
-(But the Wiki is currently under development... (T⌓T)
-
-
-
-
