@@ -307,6 +307,8 @@ class PridePeptideRetriever(GenericPrideRetriever):
             url_response = url_response.json()
             self.url, self.payloads = utility.url_split(url_response["_links"]['self']['href'])
 
+        return url_response
+
 
 class PrideProteinRetriever(GenericPrideRetriever):
     """Used to collect protein information in PRIDE database. 用于收集PRIDE数据库中的蛋白质信息。"""
@@ -596,6 +598,8 @@ class IProXPeptideRetriever(GenericIProXRetriever):
         if url_response.ok:
             url_response = url_response
             self.url, self.payloads = utility.url_split(url_response.url)
+
+        return url_response
 
 
 class IProXProteinRetriever(GenericIProXRetriever):
