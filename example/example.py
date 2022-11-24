@@ -17,7 +17,7 @@ q.simple_query()
 
 # Set up Mappers and the configs for MapperHub, search and get results.
 conf_ = q.get_query_config()
-mappers_ = [mapper.PrideMapper(), mapper.IProXMapper()]
+mappers_ = [mapper.PrideMapper()]
 
 m = hub.MapperHub(config=conf_,
                   mappers=mappers_,
