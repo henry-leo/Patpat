@@ -12,8 +12,12 @@ to structure the retrieve results for downstream modules to call.
     Typical usage example:
     典型用法示例：
 
-    import patpat_env.hub as hub
-    import patpat_env.mapper as mapper
+    from patpat import hub
+    from patpat import mapper
+    from patpat import utility
+
+    utility.init()
+    utility.initiate_uniprot_proteome_catalog()
 
     identifier = 'E9PV96'
     q = hub.QueryHub()
@@ -23,13 +27,16 @@ to structure the retrieve results for downstream modules to call.
     conf = q.get_query_config()
 
     m = mapper.PrideMapper()
+
+    # Add configs
     m._identifier = conf['identifier']
     m._peptides = conf['peptides']
     m._organism = conf['organism']
+
     m.mapping()
     m.filtering()
 
-    e = m.export()
+    output = m.export()
 """
 import time
 import re

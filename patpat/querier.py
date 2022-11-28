@@ -11,11 +11,10 @@ to be retrieved.
     Typical usage example:
     典型用法示例：
 
-    import patpat_env.querier as querier
+    from patpat import querier
 
-    identifier_ = 'E9PV96'
     p1 = querier.UniProtProteinQuerier()
-    p1.set_params(identifier=identifier_)
+    p1.identifier = 'E9PV96'
     p1.query()
     _, organism_, fasta_ = p1.get_properties()
 

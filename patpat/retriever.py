@@ -13,7 +13,7 @@ information from PRIDE is named PrideProteinRetriever (3).
     Typical usage example:
     典型用法示例：
 
-    import patpat_env.retriever as retriever
+    from patpat import retriever
 
     r = retriever.PrideProteinRetriever()
     r.request_word = "Q9CWY9"

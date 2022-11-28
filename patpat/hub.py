@@ -12,10 +12,12 @@ QueryHub类提供对蛋白质元数据的查询和需要检索肽段的生成功
     Typical usage example:
     典型用法示例：
 
-    import patpat_env.hub as hub
-    import patpat_env.mapper as mapper
+    from patpat import hub
+    from patpat import mapper
+    from patpat import utility
 
-    hub.init()
+    utility.init()
+    utility.initiate_uniprot_proteome_catalog()
 
     identifier_ = 'P05067'
 

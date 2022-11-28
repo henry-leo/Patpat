@@ -7,11 +7,11 @@ class CoreLogger用于生成日志和搜索临时文件，建议配合hub.py和v
     Typical usage example:
     典型用法示例：
 
-    import patpat_env.logger as logger
+    from patpat import logger
 
     l = logger.CoreLogger(uuid)
-    l.set_core
-    l.set_tmp
+    l.set_core()
+    l.set_tmp()
 """
 import logging
 import sys
