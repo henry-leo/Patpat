@@ -4,6 +4,7 @@ import collections
 import os
 import re
 import time
+import json
 import gzip
 from urllib import parse
 from ftplib import FTP
@@ -162,7 +163,7 @@ def pagination_download_uniprot_proteome(identifier: str, reviewed: bool = True,
     total = int(response.headers['x-total-results'])
     fasta = [response.text]
 
-    for i in tqdm.tqdm(range(size, total, size)):
+    for _ in tqdm.tqdm(range(size, total, size)):
         try:
             response = session.get(response.links['next']['url'])
             fasta.extend([response.text])
@@ -266,3 +267,24 @@ def singleton(cls):
         return _instance[cls]
 
     return inner
+
+
+def get_result_from_file(task=None):
+    """Get Patpat search result from patpat_env/result/<task>/result.json
+
+    Args:
+        task: uuid
+
+    Returns:
+        dict, project metadata
+    """
+    if task:
+        with open(f'patpat_env/result/{task}/result.json') as f:
+            data_json = ''.join(f.readlines())
+            data_dict = json.loads(data_json)
+        f.close()
+
+        return data_dict
+
+    else:
+        print('Need to input task uuid.')

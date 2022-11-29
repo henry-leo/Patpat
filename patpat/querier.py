@@ -376,7 +376,7 @@ class LocalPeptideQuerier(PeptideQuerier):
 
         return self.digestion_params, self.source, self.filtered_peptides
 
-    def query(self):
+    def query(self, threshold=1):
         """Functions for external calls. 供外部调用的函数。
 
         Raises:
@@ -386,7 +386,7 @@ class LocalPeptideQuerier(PeptideQuerier):
             raise ValueError('Please run func self.set_params() first. 请先运行self.set_params()函数')
 
         self.digestion()
-        self.search()
+        self.search(threshold=1)
 
 
 class UniProtPeptideQuerier(PeptideQuerier):
