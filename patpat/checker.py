@@ -20,7 +20,7 @@ import requests
 
 class Checker:
     def __init__(self,
-                 threshold=5
+                 threshold=3
                  ):
         self._peptide_retrievers = None
         self.threshold = threshold

@@ -154,6 +154,8 @@ class PrideProjectRetriever(GenericPrideRetriever):
     def __init__(self):
         super().__init__()
         self.response = dict()  # Collect the returned data through this property. 通过这个属性收集返回的数据。
+        self.api = 'https://www.ebi.ac.uk/pride/ws/archive/v2/projects'
+        self.example = 'PXD003415'
 
     @property
     def request_word(self):
@@ -207,7 +209,7 @@ class PrideProjectRetriever(GenericPrideRetriever):
         if self.headers is None:
             self.headers = {'Accept': 'application/json'}
 
-        self.url = "/".join(('https://www.ebi.ac.uk/pride/ws/archive/v2/projects', self._request_word))
+        self.url = "/".join((self.api, self._request_word))
 
         url_response = requests.get(self.url, headers=self.headers, params=self.payloads,
                                     timeout=120  # Avoid blocking
@@ -226,6 +228,8 @@ class PridePeptideRetriever(GenericPrideRetriever):
     def __init__(self):
         super().__init__()
         self.response = dict()  # Collect the returned data through this property. 通过这个属性收集返回的数据。
+        self.api = "https://www.ebi.ac.uk/pride/ws/archive/v2/spectra"
+        self.example = 'TCVADESAENCDK'
 
     @property
     def request_word(self):
@@ -292,7 +296,7 @@ class PridePeptideRetriever(GenericPrideRetriever):
             self.payloads = {"peptideSequence": self._request_word,
                              "pageSize": 200}
 
-        self.url = "https://www.ebi.ac.uk/pride/ws/archive/v2/spectra"
+        self.url = self.api
 
         url_response = requests.get(self.url, headers=self.headers, params=self.payloads)
         return url_response
@@ -316,6 +320,8 @@ class PrideProteinRetriever(GenericPrideRetriever):
     def __init__(self):
         super().__init__()
         self.response = dict()
+        self.api = "https://www.ebi.ac.uk/pride/ws/archive/v2/peptideevidences"
+        self.example = 'E9PV96'
 
     @property
     def request_word(self):
@@ -363,7 +369,7 @@ class PrideProteinRetriever(GenericPrideRetriever):
         while flag is False:
             try:
                 page = payloads['page']
-            except KeyError as e:
+            except (KeyError, TypeError) as e:
                 logging.getLogger('core').error(e)
                 logging.getLogger('core').error('Reply 1 time')
                 self.get_payloads_on_web()
@@ -397,7 +403,7 @@ class PrideProteinRetriever(GenericPrideRetriever):
             self.payloads = {'proteinAccession': self._request_word,
                              'pageSize': 200}
 
-        self.url = "https://www.ebi.ac.uk/pride/ws/archive/v2/peptideevidences"
+        self.url = self.api
 
         url_response = requests.get(self.url, headers=self.headers, params=self.payloads)
         return url_response
@@ -443,6 +449,8 @@ class IProXProjectRetriever(GenericIProXRetriever):
     def __init__(self):
         super().__init__()
         self.response = dict()
+        self.api = 'https://www.iprox.cn/proxi/datasets'
+        self.example = 'PXD006512'
 
     @property
     def request_word(self):
@@ -493,7 +501,7 @@ class IProXProjectRetriever(GenericIProXRetriever):
         if self.headers is None:
             self.headers = {'Accept': 'application/json'}
 
-        self.url = "/".join(('https://www.iprox.cn/proxi/datasets', self._request_word))
+        self.url = "/".join((self.api, self._request_word))
 
         url_response = requests.get(self.url, headers=self.headers, params=self.payloads,
                                     timeout=120  # Avoid blocking
@@ -511,6 +519,8 @@ class IProXPeptideRetriever(GenericIProXRetriever):
     def __init__(self):
         super().__init__()
         self.response = dict()
+        self.api = "https://www.iprox.cn/proxi/spectra"
+        self.example = 'TCVADESAENCDK'
 
     @property
     def request_word(self):
@@ -584,7 +594,7 @@ class IProXPeptideRetriever(GenericIProXRetriever):
                              'pageSize': '200',
                              'resultType': 'compact'}
 
-        self.url = "https://www.iprox.cn/proxi/spectra"
+        self.url = self.api
 
         url_response = requests.get(self.url, headers=self.headers, params=self.payloads)
         return url_response
@@ -608,6 +618,8 @@ class IProXProteinRetriever(GenericIProXRetriever):
     def __init__(self):
         super().__init__()
         self.response = dict()
+        self.api = 'https://www.iprox.cn/proxi/psms'
+        self.example = 'E9PV96'
 
     @property
     def request_word(self):
@@ -684,7 +696,7 @@ class IProXProteinRetriever(GenericIProXRetriever):
                              'pageSize': '200',
                              'resultType': 'compact'}
 
-        self.url = 'https://www.iprox.cn/proxi/psms'
+        self.url = self.api
 
         url_response = requests.get(self.url, headers=self.headers, params=self.payloads)
         return url_response
