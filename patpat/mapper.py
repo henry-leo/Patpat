@@ -160,7 +160,7 @@ class PrideMapper(Mapper):
 
             protein_level = self.protein_response_parse(protein_retriever)
 
-        protein_level = [i for i in protein_level if utility.usi_detect(i[1])]
+        protein_level = [i for i in protein_level if utility.pride_usi_detect(i[1])]
         self._protein_level = protein_level
         return protein_level
 
@@ -171,10 +171,8 @@ class PrideMapper(Mapper):
         ans_list = []
         for i in t:
             for j in i:
-                ans_list.append([j['peptideSequence'], j['_links']['psms']['href']])
+                ans_list.append([j['peptideSequence'], j['accession']])
 
-        ans_list = [[i[0], utility.url_split(i[1])[1].get('usi')] for i in ans_list
-                    if not utility.url_split(i[1])[1].get('usi') is None]
         return ans_list
 
     def mapping2peptides(self):
@@ -226,7 +224,7 @@ class PrideMapper(Mapper):
         project_base = dict()
 
         if protein_level:
-            protein_level = [[p[0], p[1]] + [i for i in utility.usi_split(p[1]).values()] for p in protein_level]
+            protein_level = [[p[0], p[1]] + [i for i in utility.pride_usi_split(p[1]).values()] for p in protein_level]
             self._protein_level = protein_level
         if peptides_level:
             peptides_level = [[p[0], p[1]] + [i for i in utility.usi_split(p[1]).values()] for p in peptides_level]

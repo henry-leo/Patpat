@@ -369,7 +369,7 @@ class PrideProteinRetriever(GenericPrideRetriever):
         while flag is False:
             try:
                 page = payloads['page']
-            except (KeyError, TypeError) as e:
+            except KeyError as e:
                 logging.getLogger('core').error(e)
                 logging.getLogger('core').error('Reply 1 time')
                 self.get_payloads_on_web()

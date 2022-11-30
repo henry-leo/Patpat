@@ -224,6 +224,37 @@ def usi_detect(usi):
             return False
 
 
+def pride_usi_split(usi):
+    """Splitting PRIDE USI"""
+    component = dict()
+
+    collection = re.search('\\S*?(?=:)', usi)
+
+    component['collection'] = collection.group()
+
+    split_point1 = collection.end() + 1
+    split_point2 = re.search('[OPQ]\\d[A-Z\\d]{3}\\d|[A-NR-Z]\\d([A-Z][A-Z\\d]{2}\\d){1,2}:\\d*', usi).end()
+
+    component['msRun+index'] = usi[split_point1:split_point2 - 1]
+    component['interpretation'] = usi[split_point2:]
+
+    return component
+
+
+def pride_usi_detect(usi):
+    """Detect if the string is PRIDE USI"""
+    try:
+        c = pride_usi_split(usi)
+    except AttributeError:
+        return False
+
+    else:
+        if re.search("pxd", c['collection'], re.I) and c['msRun+index'] and c['interpretation']:
+            return True
+        else:
+            return False
+
+
 def proteome_file_info_split(file_list: list):
     file_info = [[i,
                   re.match('UP\\d*', i).group(),
