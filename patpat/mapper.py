@@ -160,7 +160,7 @@ class PrideMapper(Mapper):
 
             protein_level = self.protein_response_parse(protein_retriever)
 
-        protein_level = [i for i in protein_level if utility.pride_usi_detect(i[1])]
+        protein_level = [i for i in protein_level if self.pride_usi_detect(i[1])]
         self._protein_level = protein_level
         return protein_level
 
@@ -224,7 +224,7 @@ class PrideMapper(Mapper):
         project_base = dict()
 
         if protein_level:
-            protein_level = [[p[0], p[1]] + [i for i in utility.pride_usi_split(p[1]).values()] for p in protein_level]
+            protein_level = [[p[0], p[1]] + [i for i in self.pride_usi_split(p[1]).values()] for p in protein_level]
             self._protein_level = protein_level
         if peptides_level:
             peptides_level = [[p[0], p[1]] + [i for i in utility.usi_split(p[1]).values()] for p in peptides_level]
@@ -297,6 +297,37 @@ class PrideMapper(Mapper):
             projects[project]['website'] = f'http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID={project}'
 
         return projects
+
+    @staticmethod
+    def pride_usi_split(usi):
+        """Splitting PRIDE USI"""
+        component = dict()
+
+        collection = re.search('\\S*?(?=:)', usi)
+
+        component['collection'] = collection.group()
+
+        split_point1 = collection.end() + 1
+        split_point2 = re.search('[OPQ]\\d[A-Z\\d]{3}\\d|[A-NR-Z]\\d([A-Z][A-Z\\d]{2}\\d){1,2}:\\d*', usi).end()
+
+        component['msRun+index'] = usi[split_point1:split_point2 - 1]
+        component['interpretation'] = usi[split_point2:]
+
+        return component
+
+    @staticmethod
+    def pride_usi_detect(usi):
+        """Detect if the string is PRIDE USI"""
+        try:
+            c = PrideMapper.pride_usi_split(usi)
+        except AttributeError:
+            return False
+
+        else:
+            if re.search("pxd", c['collection'], re.I) and c['msRun+index'] and c['interpretation']:
+                return True
+            else:
+                return False
 
 
 class IProXMapper(Mapper):
@@ -489,3 +520,8 @@ class IProXMapper(Mapper):
             projects[project]['website'] = f'http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID={project}'
 
         return projects
+
+
+class MassIVEMapper(Mapper):
+    """Mapper subclass for MassIVE database. 针对 MassIVE 数据库的 Mapper 子类。"""
+    pass
