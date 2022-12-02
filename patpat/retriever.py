@@ -648,7 +648,7 @@ class IProXProteinRetriever(GenericIProXRetriever):
             raise TypeError('Input error! 输入错误！')
 
     def retrieve(self):
-        """Used to request peptide data from iProX database. 用于向iProX数据库请求蛋白质数据。
+        """Used to request protein data from iProX database. 用于向iProX数据库请求蛋白质数据。
 
         Returns:
             Updated self.response
@@ -717,23 +717,71 @@ class GenericMassIVERetriever(Retriever):
 
     def __init__(self):
         self._request_word = ''  # Keywords to be requested 需要请求的关键词
-        self.headers = None  # HTTP protocol headers HTTP协议的标头
-        self.payloads = None  # parameters. 参数列表
-        self.url = ''  # URL 网址
+        self.headers = None      # HTTP protocol headers HTTP协议的标头
+        self.payloads = None     # parameters. 参数列表
+        self.url = ''            # URL 网址
+        self.response = None     # Collect the returned data through this property. 通过这个属性收集返回的数据。
+
+        self.api = ''
+        self._total = None       # total rows in this retrieve
+        self._current = None     # current page
+        self._offsets = None     # threshold of page
 
     def retrieve(self):
-        """Call the methods run by the class MassIVERetriever. 调用 MassIVERetriever 类运行的方法。"""
-        raise NotImplementedError
+        """Used to request data from MassIVE database. 用于向 MassIVE 数据库请求数据。
+
+        Returns:
+            Updated self.response
+
+        """
+        headers = self.headers
+        response = dict()
+        flag = False
+
+        logging.getLogger('core').info(f'query:{self._request_word}')
+
+        while flag is False:
+            page = self._current
+            try:
+                self.payloads['offset'] = self._offsets[page]
+            except IndexError:
+                break
+
+            url = self.massive_api_parse(self.api, self.payloads)
+            url_response = requests.get(url,
+                                        headers=headers,
+                                        timeout=60  # Avoid blocking
+                                        )
+            if url_response.ok:
+                response[f"page:{page}"] = url_response.json()['row_data']
+                logging.getLogger('core').info(f"page {page} is completed.")
+                self._current += 1
+            else:
+                logging.getLogger('core').error(url_response.json())
+                raise requests.exceptions.RequestException(url_response.json())
+
+            if len(response[f"page:{page}"]) < self.payloads['pageSize'] and len(self._offsets) <= self._current - 1:
+                flag = True
+
+        self.response = response
 
     def url_requester(self):
         """Direct access to MassIVE database API. 直接访问 MassIVE 数据库 API 的方法。"""
         raise NotImplementedError
 
     def get_payloads_on_web(self):
-        """Access MassIVE API and get the list of parameters of the URL through redirection.
-           访问 MassIVE API并通过重定向获得URL的参数列表。
+        """Access the URL and get the list of parameters of the URL through redirection.
+           访问URL并通过重定向获得URL的参数列表。
         """
-        raise NotImplementedError
+        url_response = self.url_requester()
+
+        if url_response.ok:
+            url_response = url_response.json()
+            self._total = int(url_response['total_rows'])
+            self._offsets = [i for i in range(0, self._total, self.payloads['pageSize'])]
+            self._current = 0
+
+        return url_response
 
     @staticmethod
     def massive_api_parse(base_url, payload):
@@ -758,7 +806,6 @@ class MassIVEProjectRetriever(GenericMassIVERetriever):
 
     def __init__(self):
         super().__init__()
-        self.response = dict()  # Collect the returned data through this property. 通过这个属性收集返回的数据。
         self.api = 'http://massive.ucsd.edu/ProteoSAFe/proxi/v0.1/datasets'
         self.example = 'PXD014834'
 
@@ -839,13 +886,8 @@ class MassIVEPeptideRetriever(GenericMassIVERetriever):
 
     def __init__(self):
         super().__init__()
-        self.response = dict()  # Collect the returned data through this property. 通过这个属性收集返回的数据。
         self.api = "http://massive.ucsd.edu/ProteoSAFe/QueryPROXI"
         self.example = 'DDDIAALVVDNGSGMCKAGFAGDDAPR'
-
-        self._total = None  # total rows in this retrieve
-        self._current = None
-        self._offsets = None
 
     @property
     def request_word(self):
@@ -871,44 +913,6 @@ class MassIVEPeptideRetriever(GenericMassIVERetriever):
         else:
             raise TypeError('Input error! 输入错误！')
 
-    def retrieve(self):
-        """Used to request peptide data from MassIVE database. 用于向 MassIVE 数据库请求肽段数据。
-
-        Returns:
-            Updated self.response
-
-        """
-        headers = self.headers
-        response = dict()
-        flag = False
-
-        logging.getLogger('core').info(f'query:{self._request_word}')
-
-        while flag is False:
-            page = self._current
-            try:
-                self.payloads['offset'] = self._offsets[page]
-            except IndexError:
-                break
-
-            url = self.massive_api_parse(self.api, self.payloads)
-            url_response = requests.get(url,
-                                        headers=headers,
-                                        timeout=60  # Avoid blocking
-                                        )
-            if url_response.ok:
-                response[f"page:{page}"] = url_response.json()['row_data']
-                logging.getLogger('core').info(f"page {page} is completed.")
-                self._current += 1
-            else:
-                logging.getLogger('core').error(url_response.json())
-                raise requests.exceptions.RequestException(url_response.json())
-
-            if len(response[f"page:{page}"]) < self.payloads['pageSize'] and len(self._offsets) <= self._current - 1:
-                flag = True
-
-        self.response = response
-
     def url_requester(self):
         """API for direct access to MassIVE database peptide data. 用于直接访问 MassIVE 数据库肽段数据的API。
 
@@ -932,31 +936,14 @@ class MassIVEPeptideRetriever(GenericMassIVERetriever):
         url_response = requests.get(self.url, headers=self.headers)
         return url_response
 
-    def get_payloads_on_web(self):
-        """Access the URL and get the list of parameters of the URL through redirection.
-           访问URL并通过重定向获得URL的参数列表。
-        """
-        url_response = self.url_requester()
-
-        if url_response.ok:
-            url_response = url_response.json()
-            self._total = int(url_response['total_rows'])
-            self._offsets = [i for i in range(0, self._total, self.payloads['pageSize'])]
-            self._current = 0
-
-        return url_response
-
 
 class MassIVEProteinRetriever(GenericMassIVERetriever):
     """Used to collect protein information in MassIVE database. 用于收集 MassIVE 数据库中的蛋白质信息。"""
 
     def __init__(self):
         super().__init__()
-        self.response = dict()
         self.api = "http://massive.ucsd.edu/ProteoSAFe/QueryPROXI"
         self.example = 'P60709'
-
-        self._total = None
 
     @property
     def request_word(self):
@@ -984,31 +971,6 @@ class MassIVEProteinRetriever(GenericMassIVERetriever):
         else:
             raise TypeError('Input error! 输入错误！')
 
-    def retrieve(self):
-        """Used to request peptide data from MassIVE database. 用于向 MassIVE 数据库请求蛋白质数据。
-
-        Returns:
-            Updated self.response
-
-        """
-        headers = self.headers
-        response = dict()
-
-        logging.getLogger('core').info(f'query:{self._request_word}')
-        url = self.massive_api_parse(self.api, self.payloads)
-        url_response = requests.get(url,
-                                    headers=headers,
-                                    timeout=60  # Avoid blocking
-                                    )
-        if url_response.ok:
-            response[f"page:0"] = url_response.json()['row_data']
-            logging.getLogger('core').info("page 0 is completed.")
-        else:
-            logging.getLogger('core').error(url_response.json())
-            raise requests.exceptions.RequestException(url_response.json())
-
-        self.response = response
-
     def url_requester(self):
         """API for direct access to MassIVE database protein data. 用于直接访问 MassIVE 数据库蛋白质数据的API。
 
@@ -1031,14 +993,118 @@ class MassIVEProteinRetriever(GenericMassIVERetriever):
         url_response = requests.get(self.url, headers=self.headers)
         return url_response
 
-    def get_payloads_on_web(self):
-        """Access the URL and get the list of parameters of the URL through redirection.
-           访问URL并通过重定向获得URL的参数列表。
+
+class MassIVEPro2ProjectRetriever(GenericMassIVERetriever):
+    """Used to retriever project information by protein accession in the MassIVE database.
+       用于在 MassIVE 数据库中按蛋白质编号检索项目信息。
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.api = "http://massive.ucsd.edu/ProteoSAFe/QueryPROXI"
+        self.example = 'P60709'
+
+    @property
+    def request_word(self):
+        return self._request_word
+
+    @request_word.setter
+    def request_word(self, request_word):
+        """Used to set request keyword. 用于设置请求关键词。
+
+        Args:
+            request_word: keyword 请求关键词
+
+        Returns:
+            None
+
+        Updates:
+            self._request_word
+
         """
-        url_response = self.url_requester()
+        if re.match('[OPQ]\\d[A-Z\\d]{3}\\d|[A-NR-Z]\\d([A-Z][A-Z\\d]{2}\\d){1,2}',
+                    request_word).group() == request_word:
+            self._request_word = request_word
+        else:
+            raise TypeError('Input error! 输入错误！')
 
-        if url_response.ok:
-            url_response = url_response.json()
-            self._total = int(url_response['total_rows'])
+    def url_requester(self):
+        """API for direct access to MassIVE database project data. 用于直接访问 MassIVE 数据库项目数据的API。
 
+        Returns:
+            Accessing the API returns a requests object. 访问API返回一个requests对象。
+
+        """
+        if self.headers is None:
+            self.headers = {'Accept': 'application/json'}
+        if self.payloads is None:
+            self.payloads = {'pageSize': 200,
+                             'offset': 0,
+                             'query': {'protein': f"*|{self._request_word}|*"},
+                             'query_type': 'dataset'
+                             }
+
+        payloads = self.payloads.copy()
+        payloads['pageSize'] = 1
+        self.url = self.massive_api_parse(self.api, payloads)
+
+        url_response = requests.get(self.url, headers=self.headers)
+        return url_response
+
+
+class MassIVEPep2ProjectRetriever(GenericMassIVERetriever):
+    """Used to retriever peptide sequence by protein accession in the MassIVE database.
+       用于在 MassIVE 数据库中按肽段序列检索项目信息。
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.api = "http://massive.ucsd.edu/ProteoSAFe/QueryPROXI"
+        self.example = 'DDDIAALVVDNGSGMCKAGFAGDDAPR'
+
+    @property
+    def request_word(self):
+        return self._request_word
+
+    @request_word.setter
+    def request_word(self, request_word):
+        """Used to set request keyword. 用于设置请求关键词。
+
+        Args:
+            request_word: keyword 请求关键词
+
+        Returns:
+            None
+
+        Updates:
+            self._request_word
+
+        """
+        check = re.search("\\D*", request_word, re.I)
+        if check and check.group() == request_word:
+            self._request_word = request_word
+        else:
+            raise TypeError('Input error! 输入错误！')
+
+    def url_requester(self):
+        """API for direct access to MassIVE database project data. 用于直接访问 MassIVE 数据库项目数据的API。
+
+        Returns:
+            Accessing the API returns a requests object. 访问API返回一个requests对象。
+
+        """
+        if self.headers is None:
+            self.headers = {'Accept': 'application/json'}
+        if self.payloads is None:
+            self.payloads = {'pageSize': 200,
+                             'offset': 0,
+                             'query': {'peptide': self._request_word},
+                             'query_type': 'dataset'
+                             }
+
+        payloads = self.payloads.copy()
+        payloads['pageSize'] = 1
+        self.url = self.massive_api_parse(self.api, payloads)
+
+        url_response = requests.get(self.url, headers=self.headers)
         return url_response
