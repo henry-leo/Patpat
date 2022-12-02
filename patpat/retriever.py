@@ -988,6 +988,7 @@ class MassIVEProteinRetriever(GenericMassIVERetriever):
                              }
 
         payloads = self.payloads.copy()
+        payloads['pageSize'] = 1
         self.url = self.massive_api_parse(self.api, payloads)
 
         url_response = requests.get(self.url, headers=self.headers)

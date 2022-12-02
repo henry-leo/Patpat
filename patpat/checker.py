@@ -53,9 +53,6 @@ class PrideChecker(GenericChecker):
     def check(self):
         self._implement()
 
-        flag = None
-        message = []
-
         for r in self.retrievers:
             if isinstance(r, retriever.PrideProjectRetriever):
                 flag, message = self._project_check(project_retriever=r)
@@ -179,9 +176,6 @@ class IProXChecker(GenericChecker):
     def check(self):
         self._implement()
 
-        flag = None
-        message = []
-
         for r in self.retrievers:
             if isinstance(r, retriever.IProXProjectRetriever):
                 flag, message = self._project_check(project_retriever=r)
@@ -270,6 +264,98 @@ class IProXChecker(GenericChecker):
                 continue
             else:
                 if c.ok:
+                    flag = True
+                    break
+                else:
+                    message.extend([c.text])
+        if flag:
+            return flag, message
+        else:
+            return flag, message
+
+
+class MassIVEChecker(GenericChecker):
+    def __init__(self, times=3):
+        self.retrievers = None
+        self.times = times
+        self.flag = {
+            'project': 0,
+            'protein': 0,
+            'peptide': 0,
+            'protein2project': 0,
+            'peptide2project': 0,
+        }
+        self.message = {
+            'project': [],
+            'protein': [],
+            'peptide': [],
+            'protein2project': [],
+            'peptide2project': [],
+        }
+
+    def _implement(self):
+        retrievers = retriever.GenericMassIVERetriever.__subclasses__()
+
+        self.retrievers = [r() for r in retrievers]
+
+    def _ans(self):
+        print("\nMassIVE Connectivity Report")
+        print(f"\tProject Retriever: {bool(self.flag['project'])}")
+        print(f"\tProtein Retriever: {bool(self.flag['protein'])}")
+        print(f"\tPeptide Retriever: {bool(self.flag['peptide'])}")
+        print(f"\tprotein2project Retriever: {bool(self.flag['protein2project'])}")
+        print(f"\tpeptide2project Retriever: {bool(self.flag['peptide2project'])}")
+
+    def check(self):
+        self._implement()
+
+        for r in self.retrievers:
+            if isinstance(r, retriever.MassIVEProjectRetriever):
+                flag, message = self._check(this_retriever=r)
+                if flag:
+                    self.flag['project'] = 1
+                self.message['project'] = message
+
+            elif isinstance(r, retriever.MassIVEProteinRetriever):
+                flag, message = self._check(this_retriever=r)
+                if flag:
+                    self.flag['protein'] = 1
+                self.message['protein'] = message
+
+            elif isinstance(r, retriever.MassIVEPeptideRetriever):
+                flag, message = self._check(this_retriever=r)
+                if flag:
+                    self.flag['peptide'] = 1
+                self.message['peptide'] = message
+
+            elif isinstance(r, retriever.MassIVEPro2ProjectRetriever):
+                flag, message = self._check(this_retriever=r)
+                if flag:
+                    self.flag['protein2project'] = 1
+                self.message['protein2project'] = message
+
+            elif isinstance(r, retriever.MassIVEPep2ProjectRetriever):
+                flag, message = self._check(this_retriever=r)
+                if flag:
+                    self.flag['peptide2project'] = 1
+                self.message['peptide2project'] = message
+        self._ans()
+
+    def _check(self, this_retriever):
+        t = this_retriever
+        flag = False
+        message = []
+
+        print(f"\nCheck the connectivity of the {t.__class__.__name__}")
+        for _ in tqdm.tqdm(range(self.times)):
+            try:
+                t.request_word = t.example
+                c = t.url_requester()
+            except requests.exceptions.RequestException as e:
+                message.extend([e])
+                continue
+            else:
+                if c:
                     flag = True
                     break
                 else:
