@@ -49,6 +49,7 @@ from . import utility
 from . import querier
 from . import mapper
 from . import logger
+from . import checker
 
 
 class QueryHub(object):
@@ -359,3 +360,23 @@ class MapperHub:
                             f"{project['title']}\t{project['summary'].encode(errors='ignore')}\t{project['website']}\n")
 
         return output
+
+
+class CheckerHub:
+    """Call all of Checker"""
+    def __init__(self):
+        self.recommended_mappers = []
+        self.checkers = None
+
+    def check(self):
+        checkers = checker.GenericChecker.__subclasses__()
+
+        self.checkers = [c() for c in checkers]
+
+        for c in self.checkers:
+            m = c.check()
+            if m:
+                self.recommended_mappers.extend([m])
+
+        return self.recommended_mappers
+

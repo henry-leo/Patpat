@@ -16,7 +16,8 @@
 import requests
 import tqdm
 
-from patpat import retriever
+from . import retriever
+from . import mapper
 
 
 class GenericChecker:
@@ -50,6 +51,12 @@ class PrideChecker(GenericChecker):
         print(f"\tProtein Retriever: {bool(self.flag['protein'])}")
         print(f"\tPeptide Retriever: {bool(self.flag['peptide'])}")
 
+        if len([i for i in self.flag.values() if i]) == len(self.retrievers):
+            print(f"Welcome to use PRIDEMapper")
+            return mapper.PrideMapper()
+        else:
+            print(f"PRIDEMapper is not recommended")
+
     def check(self):
         self._implement()
 
@@ -71,7 +78,8 @@ class PrideChecker(GenericChecker):
                 if flag:
                     self.flag['peptide'] = 1
                 self.message['peptide'] = message
-        self._ans()
+        m = self._ans()
+        return m
 
     def _project_check(self, project_retriever):
         t = project_retriever
@@ -173,6 +181,12 @@ class IProXChecker(GenericChecker):
         print(f"\tProtein Retriever: {bool(self.flag['protein'])}")
         print(f"\tPeptide Retriever: {bool(self.flag['peptide'])}")
 
+        if len([i for i in self.flag.values() if i]) == len(self.retrievers):
+            print(f"Welcome to use IProXMapper")
+            return mapper.IProXMapper()
+        else:
+            print(f"IProXMapper is not recommended")
+
     def check(self):
         self._implement()
 
@@ -194,7 +208,8 @@ class IProXChecker(GenericChecker):
                 if flag:
                     self.flag['peptide'] = 1
                 self.message['peptide'] = message
-        self._ans()
+        m = self._ans()
+        return m
 
     def _project_check(self, project_retriever):
         t = project_retriever
@@ -251,7 +266,7 @@ class IProXChecker(GenericChecker):
         flag = False
         message = []
 
-        print(f"\nCheck the connectivity of the PRIDE Peptide API")
+        print(f"\nCheck the connectivity of the iProX Peptide API")
         for _ in tqdm.tqdm(range(self.times)):
             try:
                 payloads = {'peptideSequence': t.example,
@@ -306,6 +321,12 @@ class MassIVEChecker(GenericChecker):
         print(f"\tprotein2project Retriever: {bool(self.flag['protein2project'])}")
         print(f"\tpeptide2project Retriever: {bool(self.flag['peptide2project'])}")
 
+        if len([i for i in self.flag.values() if i]) == len(self.retrievers):
+            print(f"Welcome to use MassIVEMapper")
+            return mapper.MassIVEMapper()
+        else:
+            print(f"MassIVEMapper is not recommended")
+
     def check(self):
         self._implement()
 
@@ -339,7 +360,8 @@ class MassIVEChecker(GenericChecker):
                 if flag:
                     self.flag['peptide2project'] = 1
                 self.message['peptide2project'] = message
-        self._ans()
+        m = self._ans()
+        return m
 
     def _check(self, this_retriever):
         t = this_retriever
