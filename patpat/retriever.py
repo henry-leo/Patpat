@@ -746,6 +746,8 @@ class GenericMassIVERetriever(Retriever):
                 self.payloads['offset'] = self._offsets[page]
             except IndexError:
                 break
+            except TypeError:
+                break
 
             url = self.massive_api_parse(self.api, self.payloads)
             url_response = requests.get(url,
@@ -776,8 +778,8 @@ class GenericMassIVERetriever(Retriever):
         url_response = self.url_requester()
 
         if url_response.ok:
-            url_response = url_response.json()
-            self._total = int(url_response['total_rows'])
+            url_response_json = url_response.json()
+            self._total = int(url_response_json['total_rows'])
             self._offsets = [i for i in range(0, self._total, self.payloads['pageSize'])]
             self._current = 0
 
@@ -845,13 +847,13 @@ class MassIVEProjectRetriever(GenericMassIVERetriever):
 
         """
         url_response = self.url_requester()
-        logging.getLogger('core').debug('query:{}'.format(self._request_word))
+        # logging.getLogger('core').debug('query:{}'.format(self._request_word))
 
         if url_response.ok:
             url_response = url_response.json()
 
         else:
-            logging.error('No correct return transmission received! 未收到正确回传！')
+            logging.error(f'No correct return transmission received! 未收到正确回传！[{self._request_word}]')
             url_response = dict()
 
         time.sleep(.3)
