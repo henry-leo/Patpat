@@ -2,7 +2,7 @@
 Patpat means Proteomics Aiders Telescope, it is a public proteomics dataset search framework that
 only requires protein identifiers to be passed in to search for relevant datasets.
 
-## Base Usage
+## Quickly Use
 Load Patpat package and create runtime environment:
 
 ```Python
@@ -39,9 +39,9 @@ Get the search configs:
 ```python
 conf_ = q.get_query_config()
 ```
-Set up Mappers for MapperHub, search and get results:
+Set up Mappers based on connectivity and add MapperHub's configuration, search and get results.:
 ```python
-mappers_ = [mapper.PrideMapper(), mapper.IProXMapper()]
+mappers_ = hub.CheckerHub().checker()
 
 m = hub.MapperHub(config=conf_,
                   mappers=mappers_,

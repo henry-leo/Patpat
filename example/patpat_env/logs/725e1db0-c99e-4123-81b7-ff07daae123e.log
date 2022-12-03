@@ -1,0 +1,64 @@
+2022-12-03 21:28:59,885	INFO	mapper	mapping	Select MassIVE to search.
+2022-12-03 21:28:59,885	INFO	mapper	mapping2peptides	Find 33 peptides all.
+2022-12-03 21:29:00,369	INFO	mapper	mapping2peptides	Peptide ALAGGRDLSADRPR no request.
+2022-12-03 21:29:00,932	INFO	retriever	retrieve	query:AVGTPAGGGFPR
+2022-12-03 21:29:02,794	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:03,271	INFO	retriever	retrieve	query:AVGTPAGGGFPRR
+2022-12-03 21:29:03,912	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:04,380	INFO	retriever	retrieve	query:CHFIHNAEER
+2022-12-03 21:29:05,802	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:06,255	INFO	retriever	retrieve	query:CHFIHNAEERR
+2022-12-03 21:29:07,209	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:07,677	INFO	retriever	retrieve	query:CQFAHGIHELR
+2022-12-03 21:29:09,380	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:09,833	INFO	retriever	retrieve	query:CQFAHGIHELRSLTR
+2022-12-03 21:29:10,286	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:10,755	INFO	retriever	retrieve	query:DLSADRPR
+2022-12-03 21:29:12,192	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:12,661	INFO	retriever	retrieve	query:DRSFSEGGER
+2022-12-03 21:29:13,525	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:14,010	INFO	retriever	retrieve	query:FHQNQLLSSLK
+2022-12-03 21:29:15,979	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:16,432	INFO	retriever	retrieve	query:FHQNQLLSSLKGEPAPSLSSR
+2022-12-03 21:29:16,885	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:17,354	INFO	retriever	retrieve	query:GEPAPSLSSR
+2022-12-03 21:29:17,807	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:18,229	INFO	mapper	mapping2peptides	Peptide GEPAPSLSSRDSR no request.
+2022-12-03 21:29:18,682	INFO	mapper	mapping2peptides	Peptide GNKMLNYSTPSAGGCLLDR no request.
+2022-12-03 21:29:19,135	INFO	retriever	retrieve	query:HSVTLPSSK
+2022-12-03 21:29:20,197	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:20,650	INFO	mapper	mapping2peptides	Peptide HSVTLPSSKFHQNQLLSSLK no request.
+2022-12-03 21:29:21,103	INFO	retriever	retrieve	query:KAVGTPAGGGFPR
+2022-12-03 21:29:21,838	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:22,323	INFO	retriever	retrieve	query:LLPTQKQPGSGQVNSSR
+2022-12-03 21:29:22,761	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:23,203	INFO	retriever	retrieve	query:MLNYSTPSAGGCLLDR
+2022-12-03 21:29:23,659	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:24,143	INFO	retriever	retrieve	query:MLNYSTPSAGGCLLDRK
+2022-12-03 21:29:24,705	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:25,174	INFO	retriever	retrieve	query:MTTTLVSATIFDLSEVLCK
+2022-12-03 21:29:25,674	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:26,127	INFO	retriever	retrieve	query:MTTTLVSATIFDLSEVLCKGNK
+2022-12-03 21:29:26,564	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:27,018	INFO	retriever	retrieve	query:QPGSGQVNSSR
+2022-12-03 21:29:27,487	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:28,002	INFO	mapper	mapping2peptides	Peptide QPGSGQVNSSRYK no request.
+2022-12-03 21:29:28,471	INFO	mapper	mapping2peptides	Peptide RALAGGR no request.
+2022-12-03 21:29:28,939	INFO	retriever	retrieve	query:RHSVTLPSSK
+2022-12-03 21:29:30,548	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:31,001	INFO	retriever	retrieve	query:SFSEGGER
+2022-12-03 21:29:32,236	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:32,705	INFO	retriever	retrieve	query:SFSEGGERLLPTQK
+2022-12-03 21:29:33,162	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:33,709	INFO	retriever	retrieve	query:TELCRPFEENGACK
+2022-12-03 21:29:39,554	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:40,007	INFO	mapper	mapping2peptides	Peptide TELCRPFEENGACKYGDK no request.
+2022-12-03 21:29:40,454	INFO	mapper	mapping2peptides	Peptide TFHTIGFCPYGPRCHFIHNAEER no request.
+2022-12-03 21:29:40,907	INFO	retriever	retrieve	query:YGDKCQFAHGIHELR
+2022-12-03 21:29:41,767	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:42,251	INFO	retriever	retrieve	query:YKTELCRPFEENGACK
+2022-12-03 21:29:43,145	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:43,932	INFO	retriever	retrieve	query:P23950
+2022-12-03 21:29:47,448	INFO	retriever	retrieve	page 0 is completed.
+2022-12-03 21:29:47,448	INFO	mapper	mapping2project	Mapping to project...
+2022-12-03 21:31:16,854	INFO	mapper	mapping2project	MassIVE mapping completed.

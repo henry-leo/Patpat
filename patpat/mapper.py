@@ -220,7 +220,7 @@ class PrideMapper(Mapper):
 
     def mapping2project(self, protein_level, peptides_level):
         """Implementing mapping between retrieve result and project. 实现检索结果和项目之间的映射。"""
-        logging.getLogger('core').info('Mapper to project...')
+        logging.getLogger('core').info('Mapping to project...')
         project_base = dict()
 
         if protein_level:
@@ -439,7 +439,7 @@ class IProXMapper(Mapper):
 
     def mapping2project(self, protein_level, peptides_level):
         """Implementing mapping between retrieve result and project. 实现检索结果和项目之间的映射。"""
-        logging.getLogger('core').info('Mapper to project...')
+        logging.getLogger('core').info('Mapping to project...')
         project_base = dict()
 
         if protein_level:
@@ -634,7 +634,7 @@ class MassIVEMapper(Mapper):
 
     def mapping2project(self, protein_level, peptides_level):
         """Implementing mapping between retrieve result and project. 实现检索结果和项目之间的映射。"""
-        logging.getLogger('core').info('Mapper to project...')
+        logging.getLogger('core').info('Mapping to project...')
         project_base = dict()
 
         if protein_level:

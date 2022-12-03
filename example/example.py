@@ -15,9 +15,9 @@ q = hub.QueryHub()
 q.identifier = identifier_
 q.simple_query()
 
-# Set up Mappers and the configs for MapperHub, search and get results.
+# Set up Mappers based on connectivity and add MapperHub's configuration, search and get results.
 conf_ = q.get_query_config()
-mappers_ = [mapper.PrideMapper()]
+mappers_ = hub.CheckerHub().check()
 
 m = hub.MapperHub(config=conf_,
                   mappers=mappers_,
