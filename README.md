@@ -1,6 +1,7 @@
-# Patpat
-Patpat means Proteomics Aiders Telescope, it is a public proteomics dataset search framework that
-only requires protein identifiers to be passed in to search for relevant datasets.
+# *Patpat*
+***Patpat*** stands for ***P**roteomics **A**iders **T**elescope*, 
+a public proteomics dataset search framework that simply passes in protein identifiers to search for relevant datasets
+and returns metadata to aid your research.
 
 ## Quickly Use
 Load Patpat package and create runtime environment:
@@ -53,8 +54,8 @@ result_ = m.export()
 
 Result files store in ```patpat_envs/result/<task_uuid>```, you can find ```<task_uuid>``` by ```m.config```
 
-In its current version, Patpat supports both PRIDE and iProX databases. In addition,
-Patpat is an extensible framework and users are encouraged to extend it with databases of interest to Patpat or
-to build their processes.
+In its current version, Patpat supports both PRIDE, iProX and MassIVE databases. 
+In addition, Patpat is an extensible framework and users are encouraged to extend it with databases of interest 
+to Patpat or to build their processes.
 
 For more information, see the [Wiki](https://github.com/henry-leo/Patpat/wiki).
