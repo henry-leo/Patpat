@@ -59,3 +59,12 @@ In addition, Patpat is an extensible framework and users are encouraged to exten
 to Patpat or to build their processes.
 
 For more information, see the [Wiki](https://github.com/henry-leo/Patpat/wiki).
+
+## Cite us
+Weiheng Liao, Xuelian Zhang, Patpat: a public proteomics dataset search framework,
+Bioinformatics, Volume 39, Issue 2, February 2023,
+btad076, https://doi.org/10.1093/bioinformatics/btad076
+
+## Credits
+This work is inseparable from the help of predecessors, 
+and the list is listed in the references section of the article.
