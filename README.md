@@ -62,7 +62,7 @@ For more information, see the [Wiki](https://github.com/henry-leo/Patpat/wiki).
 
 ## Cite us
 Weiheng Liao, Xuelian Zhang, Patpat: a public proteomics dataset search framework,
-Bioinformatics, Volume 39, Issue 2, February 2023,
+*Bioinformatics*, Volume 39, Issue 2, February 2023,
 btad076, https://doi.org/10.1093/bioinformatics/btad076
 
 ## Credits
