@@ -3,6 +3,12 @@
 a public proteomics dataset search framework that simply passes in protein identifiers to search for relevant datasets
 and returns metadata to aid your research.
 
+## Installation
+
+```cmd
+pip install patpat
+```
+
 ## Quickly Use
 Load Patpat package and create runtime environment:
 
