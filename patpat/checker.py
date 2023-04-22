@@ -219,7 +219,7 @@ class IProXChecker(GenericChecker):
         print(f"\nCheck the connectivity of the iProX Project API")
         for _ in tqdm.tqdm(range(self.times)):
             try:
-                c = requests.get(t.api, params=t.example)
+                c = requests.get("/".join([t.api, t.example]))
             except requests.exceptions.RequestException as e:
                 message.extend([e])
                 continue

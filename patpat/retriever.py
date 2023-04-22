@@ -619,7 +619,7 @@ class IProXProteinRetriever(GenericIProXRetriever):
         super().__init__()
         self.response = dict()
         self.api = 'https://www.iprox.cn/proxi/psms'
-        self.example = 'E9PV96'
+        self.example = 'P60709'
 
     @property
     def request_word(self):
